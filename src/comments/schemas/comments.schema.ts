@@ -34,8 +34,8 @@ export class Comments {
 	@Prop()
 	createdAt: Date;
 
-	@Prop({ type: CommentLikesInfoAdvantage })
-	likesInfo?: CommentLikesInfoAdvantage;
+	// @Prop({ type: CommentLikesInfoAdvantage })
+	// likesInfo?: CommentLikesInfoAdvantage;
 }
 
 export const CommentsSchema = SchemaFactory.createForClass(Comments);

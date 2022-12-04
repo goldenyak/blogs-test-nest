@@ -12,7 +12,7 @@ export class PostsRepository {
 		return this.postsModel.create(newPost);
 	}
 
-	async getAllPosts(pageNumber, pageSize, sortBy: string, sortDirection: string) {
+	async getAllPosts(pageNumber = 1, pageSize = 10, sortBy: string, sortDirection: string) {
 		const sortByFilter = this.getFilterForSortBy(sortBy);
 		const sortDirectionFilter = this.getFilterForSortDirection(sortDirection);
 
@@ -44,8 +44,8 @@ export class PostsRepository {
 	}
 
 	async getAllPostsByBlogId(
-		pageNumber,
-		pageSize,
+		pageNumber = 1,
+		pageSize = 10,
 		sortBy: string,
 		sortDirection: string,
 		blogId: string,

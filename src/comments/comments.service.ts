@@ -21,11 +21,11 @@ export class CommentsService {
 			userLogin: user.login,
 			postId: postId,
 			createdAt: new Date(),
-			likesInfo: {
-				likesCount: 0,
-				dislikesCount: 0,
-				myStatus: 'None',
-			},
+			// likesInfo: {
+			// 	likesCount: 0,
+			// 	dislikesCount: 0,
+			// 	myStatus: 'None',
+			// },
 		};
 		await this.commentsRepository.create(newComment);
 		return {
@@ -34,11 +34,11 @@ export class CommentsService {
 			userId: newComment.userId,
 			userLogin: newComment.userLogin,
 			createdAt: newComment.createdAt,
-			likesInfo: {
-				likesCount: newComment.likesInfo.likesCount,
-				dislikesCount: newComment.likesInfo.dislikesCount,
-				myStatus: newComment.likesInfo.myStatus,
-			},
+			// likesInfo: {
+			// 	likesCount: newComment.likesInfo.likesCount,
+			// 	dislikesCount: newComment.likesInfo.dislikesCount,
+			// 	myStatus: newComment.likesInfo.myStatus,
+			// },
 		};
 	}
 

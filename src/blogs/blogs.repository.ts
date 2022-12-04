@@ -14,8 +14,8 @@ export class BlogsRepository {
 
 	async getAllBlogs(
 		searchNameTerm: string,
-		pageNumber ,
-		pageSize ,
+		pageNumber = 1 ,
+		pageSize = 10,
 		sortBy: string,
 		sortDirection: string,
 	) {
