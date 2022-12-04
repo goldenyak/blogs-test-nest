@@ -44,18 +44,12 @@ export class BlogsService {
 		return await this.postsService.create(dto, blogId);
 	}
 
-	async getAllBlogs(
-		searchNameTerm: string,
-		pageNumber: number,
-		pageSize: number,
-		sortBy: string,
-		sortDirection: string,
-	) {
+	async getAllBlogs({ searchNameTerm, pageNumber, pageSize, sortBy, sortDirection }) {
 		const countBlogs = await this.blogsRepository.countBlogs(searchNameTerm);
 		const allBlogs = await this.blogsRepository.getAllBlogs(
 			searchNameTerm,
-			(pageNumber),
-			(pageSize),
+			pageNumber,
+			pageSize,
 			sortBy,
 			sortDirection,
 		);
@@ -68,13 +62,7 @@ export class BlogsService {
 		};
 	}
 
-	async getAllPostsByBlogId(
-		pageNumber: number,
-		pageSize: number,
-		sortBy: string,
-		sortDirection: string,
-		blogId: string,
-	) {
+	async getAllPostsByBlogId({ pageNumber, pageSize, sortBy, sortDirection }, blogId: string) {
 		return await this.postsService.getAllPostsByBlogId(
 			pageNumber,
 			pageSize,

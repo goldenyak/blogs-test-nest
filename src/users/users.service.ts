@@ -5,12 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { User } from './schemas/user.schema';
 import { compare, genSalt, hash } from 'bcrypt';
 import { UNREGISTERED_USER_ERROR, WRONG_PASSWORD_ERROR } from './constants/users.constants';
+import { UsersQueryDto } from './dto/users-query.dto';
 
 @Injectable()
 export class UsersService {
 	constructor(private readonly usersRepository: UsersRepository) {}
 
-	async 	create(dto: CreateUserDto) {
+	async create(dto: CreateUserDto) {
 		const salt = await genSalt(10);
 		const newUser: User = {
 			login: dto.login,
@@ -30,21 +31,21 @@ export class UsersService {
 		};
 	}
 
-	async getAllUsers(
-		searchLoginTerm: string,
-		searchEmailTerm: string,
-		pageNumber: number,
-		pageSize: number,
-		sortBy: string,
-		sortDirection: string,
-	) {
+	async getAllUsers({
+		searchLoginTerm,
+		searchEmailTerm,
+		pageNumber,
+		pageSize,
+		sortBy,
+		sortDirection,
+	}: UsersQueryDto) {
 		const countUsers = await this.usersRepository.countUsers(searchLoginTerm, searchEmailTerm);
 
 		const allUsers = await this.usersRepository.getAllUsers(
 			searchLoginTerm,
 			searchEmailTerm,
-			(pageNumber),
-			(pageSize),
+			pageNumber,
+			pageSize,
 			sortBy,
 			sortDirection,
 		);

@@ -12,12 +12,13 @@ import {
 	Post,
 	Query,
 	Req,
-	UseGuards
-} from "@nestjs/common";
+	UseGuards,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { Request } from 'express';
-import { BasicAuthGuard } from "../guards/basic-auth.guard";
+import { BasicAuthGuard } from '../guards/basic-auth.guard';
+import { UsersQueryDto } from './dto/users-query.dto';
 
 @Controller('users')
 export class UsersController {
@@ -36,22 +37,8 @@ export class UsersController {
 
 	@HttpCode(200)
 	@Get()
-	async getAllUsers(
-		@Query('searchLoginTerm') searchLoginTerm: string,
-		@Query('searchEmailTerm') searchEmailTerm: string,
-		@Query('pageNumber') pageNumber: number,
-		@Query('pageSize') pageSize: number,
-		@Query('sortBy') sortBy: string,
-		@Query('sortDirection') sortDirection: string,
-	) {
-		return this.usersService.getAllUsers(
-			searchLoginTerm,
-			searchEmailTerm,
-			pageNumber,
-			pageSize,
-			sortBy,
-			sortDirection,
-		);
+	async getAllUsers(@Query() queryParams: UsersQueryDto) {
+		return this.usersService.getAllUsers(queryParams);
 	}
 
 	@Get(':id')
