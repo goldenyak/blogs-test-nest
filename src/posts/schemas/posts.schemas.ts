@@ -47,8 +47,8 @@ export class Posts {
 	@Prop()
 	createdAt: Date;
 
-	@Prop({ type: PostLikesInfoAdvantage })
-	extendedLikesInfo: PostLikesInfoAdvantage;
+	// @Prop({ type: PostLikesInfoAdvantage })
+	// extendedLikesInfo: PostLikesInfoAdvantage;
 }
 
 export const PostsSchema = SchemaFactory.createForClass(Posts);

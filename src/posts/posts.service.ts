@@ -27,12 +27,12 @@ export class PostsService {
 				blogId: blogId ? blogId : foundedBlog.id,
 				blogName: foundedBlog.name,
 				createdAt: new Date(),
-				extendedLikesInfo: {
-					likesCount: 0,
-					dislikesCount: 0,
-					myStatus: 'None',
-					newestLikes: [],
-				},
+				// extendedLikesInfo: {
+				// 	likesCount: 0,
+				// 	dislikesCount: 0,
+				// 	myStatus: 'None',
+				// 	newestLikes: [],
+				// },
 			};
 			await this.postsRepository.create(newPost);
 			return {
@@ -43,12 +43,12 @@ export class PostsService {
 				blogId: newPost.blogId,
 				blogName: newPost.blogName,
 				createdAt: newPost.createdAt,
-				extendedLikesInfo: {
-					likesCount: 0,
-					dislikesCount: 0,
-					myStatus: 'None',
-					newestLikes: [],
-				},
+				// extendedLikesInfo: {
+				// 	likesCount: 0,
+				// 	dislikesCount: 0,
+				// 	myStatus: 'None',
+				// 	newestLikes: [],
+				// },
 			};
 		}
 	}
