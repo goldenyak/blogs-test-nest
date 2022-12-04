@@ -61,8 +61,8 @@ export class PostsService {
 	) {
 		const countedAllPosts = await this.postsRepository.countAllPosts();
 		const allPosts = await this.postsRepository.getAllPosts(
-			(pageNumber = 1),
-			(pageSize = 10),
+			(pageNumber ),
+			(pageSize),
 			sortBy,
 			sortDirection,
 		);

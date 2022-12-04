@@ -54,8 +54,8 @@ export class BlogsService {
 		const countBlogs = await this.blogsRepository.countBlogs(searchNameTerm);
 		const allBlogs = await this.blogsRepository.getAllBlogs(
 			searchNameTerm,
-			(pageNumber = 1),
-			(pageSize = 10),
+			(pageNumber),
+			(pageSize),
 			sortBy,
 			sortDirection,
 		);

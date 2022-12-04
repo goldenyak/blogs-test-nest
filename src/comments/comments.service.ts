@@ -51,8 +51,8 @@ export class CommentsService {
 	) {
 		const countedCommentsByPostId = await this.commentsRepository.countCommentsByPostId(postId);
 		const allCommentsByPostId = await this.commentsRepository.getAllCommentsByPostId(
-			(pageNumber = 1),
-			(pageSize = 10),
+			(pageNumber),
+			(pageSize),
 			sortBy,
 			sortDirection,
 			postId,
