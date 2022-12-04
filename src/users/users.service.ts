@@ -43,14 +43,14 @@ export class UsersService {
 		const allUsers = await this.usersRepository.getAllUsers(
 			searchLoginTerm,
 			searchEmailTerm,
-			(pageNumber = 1),
-			(pageSize = 10),
+			(pageNumber),
+			(pageSize),
 			sortBy,
 			sortDirection,
 		);
 
 		return {
-			pagesCount: pageNumber,
+			pagesCount: Math.ceil(countUsers / pageSize),
 			page: pageNumber,
 			pageSize: pageSize,
 			totalCount: countUsers,
