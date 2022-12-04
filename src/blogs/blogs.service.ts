@@ -21,10 +21,17 @@ export class BlogsService {
 			websiteUrl: dto.websiteUrl,
 			createdAt: new Date(),
 		};
-		return await this.blogsRepository.create(newBlog);
+		await this.blogsRepository.create(newBlog);
+		return {
+			id: newBlog.id,
+			name: newBlog.name,
+			description: newBlog.description,
+			websiteUrl: newBlog.websiteUrl,
+			createdAt: newBlog.createdAt,
+		};
 	}
 
-	async createPostByBlogId(dto: CreatePostsDto, blogId: string ) {
+	async createPostByBlogId(dto: CreatePostsDto, blogId: string) {
 		// const newPost = {
 		// 	id: uuidv4(),
 		// 	title: dto.title,
