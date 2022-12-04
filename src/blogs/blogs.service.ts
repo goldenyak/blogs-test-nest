@@ -60,7 +60,7 @@ export class BlogsService {
 			sortDirection,
 		);
 		return {
-			pagesCount: pageNumber,
+			pagesCount: Math.ceil(countBlogs / pageSize),
 			page: pageNumber,
 			pageSize: pageSize,
 			totalCount: countBlogs,
