@@ -112,8 +112,8 @@ export class PostsService {
 	) {
 		const countedPostsByBlogId = await this.postsRepository.countPostsByBlogId(blogId);
 		const allPostsByBlogId = await this.postsRepository.getAllPostsByBlogId(
-			(pageNumber = 1),
-			(pageSize = 10),
+			(pageNumber),
+			(pageSize),
 			sortBy,
 			sortDirection,
 			blogId,
