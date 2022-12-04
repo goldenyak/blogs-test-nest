@@ -30,8 +30,6 @@ export class CommentsController {
 	@Get(':id')
 	async findCommentById(
 		@Param('id') id: string,
-		@Req() req: Request,
-		@Headers('authorization') header: string,
 	) {
 		const commentById = await this.commentsService.findCommentById(id);
 		if (!commentById) {

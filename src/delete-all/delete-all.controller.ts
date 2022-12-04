@@ -19,7 +19,7 @@ export class DeleteAllController {
 	@Delete('all-data')
 	async deleteAll() {
 		await this.usersService.deleteAll();
-		await this.blogsService.deleteAll();
+		await this.blogsService.deleteAll()
 		// await this.commentsService.deleteAll();
 		await this.postsService.deleteAll();
 		// await this.sessionsService.deleteAll();
