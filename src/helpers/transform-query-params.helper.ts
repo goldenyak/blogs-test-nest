@@ -3,5 +3,5 @@ export function transformSortDirectionFilter(value) {
 }
 
 export function transformSortByFilter(value) {
-	return value === 'createdAt' ? 'createdAt' : '';
+	return value === 'createdAt' ? 'createdAt' : value;
 }
