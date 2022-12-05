@@ -53,16 +53,11 @@ export class PostsService {
 		}
 	}
 
-	async getAllPosts(
-		pageNumber: number,
-		pageSize: number,
-		sortBy: string,
-		sortDirection: string,
-	) {
+	async getAllPosts({ pageNumber, pageSize, sortBy, sortDirection }) {
 		const countedAllPosts = await this.postsRepository.countAllPosts();
 		const allPosts = await this.postsRepository.getAllPosts(
-			(pageNumber ),
-			(pageSize),
+			pageNumber,
+			pageSize,
 			sortBy,
 			sortDirection,
 		);
@@ -112,8 +107,8 @@ export class PostsService {
 	) {
 		const countedPostsByBlogId = await this.postsRepository.countPostsByBlogId(blogId);
 		const allPostsByBlogId = await this.postsRepository.getAllPostsByBlogId(
-			(pageNumber),
-			(pageSize),
+			pageNumber,
+			pageSize,
 			sortBy,
 			sortDirection,
 			blogId,

@@ -21,6 +21,7 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import { CommentsService } from '../comments/comments.service';
 import { Request } from 'express';
 import { UsersService } from '../users/users.service';
+import { PostsQueryParams } from './dto/posts-query.dto';
 
 @Controller('posts')
 export class PostsController {
@@ -37,20 +38,8 @@ export class PostsController {
 
 	@HttpCode(200)
 	@Get()
-	async getAllPosts(
-		@Query('pageNumber') pageNumber: number,
-		@Query('pageSize') pageSize: number,
-		@Query('sortBy') sortBy: string,
-		@Query('sortDirection') sortDirection: string,
-		@Req() req: Request,
-		@Headers('authorization') header: string,
-	) {
-		return this.postsService.getAllPosts(
-			pageNumber,
-			pageSize,
-			sortBy,
-			sortDirection,
-		);
+	async getAllPosts(@Query() queryParams: PostsQueryParams) {
+		return this.postsService.getAllPosts(queryParams);
 	}
 
 	@HttpCode(200)
@@ -76,9 +65,7 @@ export class PostsController {
 	}
 
 	@Get(':id')
-	async findPostById(
-		@Param('id') id: string,
-	) {
+	async findPostById(@Param('id') id: string) {
 		// let currentUserId;
 		// if (req.headers.authorization) {
 		// 	const token = req.headers.authorization.split(' ')[1];
