@@ -34,11 +34,11 @@ export class PostsRepository {
 				blogId: post.blogId,
 				blogName: post.blogName,
 				createdAt: post.createdAt,
-				// extendedLikesInfo: {
-				// 	likesCount: 0,
-				// 	dislikesCount: 0,
-				// 	myStatus: 'None',
-				// },
+				extendedLikesInfo: {
+					likesCount: 0,
+					dislikesCount: 0,
+					myStatus: 'None',
+				},
 			};
 		});
 	}
@@ -70,12 +70,12 @@ export class PostsRepository {
 				blogId: post.blogId,
 				blogName: post.blogName,
 				createdAt: post.createdAt,
-				// extendedLikesInfo: {
-				// 	likesCount: 0,
-				// 	dislikesCount: 0,
-				// 	myStatus: 'None',
-				// 	newestLikes: [],
-				// },
+				extendedLikesInfo: {
+					likesCount: 0,
+					dislikesCount: 0,
+					myStatus: 'None',
+					newestLikes: [],
+				},
 			};
 		});
 	}
