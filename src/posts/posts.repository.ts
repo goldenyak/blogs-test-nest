@@ -36,6 +36,7 @@ export class PostsRepository {
 					likesCount: 0,
 					dislikesCount: 0,
 					myStatus: 'None',
+					newestLikes: [],
 				},
 			};
 		});
