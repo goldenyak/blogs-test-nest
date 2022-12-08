@@ -24,6 +24,7 @@ import { UsersQueryDto } from './dto/users-query.dto';
 export class UsersController {
 	constructor(private readonly usersService: UsersService) {}
 
+	@UseGuards(BasicAuthGuard)
 	@HttpCode(201)
 	@Post()
 	async create(@Body() dto: CreateUserDto, @Req() req: Request) {
